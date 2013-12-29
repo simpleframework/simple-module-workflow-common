@@ -16,7 +16,7 @@ public class WorkflowException extends ModuleException {
 	}
 
 	public static WorkflowException of(final Throwable throwable) {
-		return (WorkflowException) _of(WorkflowException.class, null, throwable);
+		return _of(WorkflowException.class, null, throwable);
 	}
 
 	public static WorkflowException of(final String msg) {
