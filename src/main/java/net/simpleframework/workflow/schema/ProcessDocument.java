@@ -46,7 +46,7 @@ public class ProcessDocument extends XmlDocument {
 
 	public ProcessNode getProcessNode() {
 		if (processNode == null) {
-			processNode = new ProcessNode(getRoot().elementIterator().next());
+			processNode = new ProcessNode(getRoot().element());
 			processNode.startNode();
 			processNode.endNode();
 		}

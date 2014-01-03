@@ -7,8 +7,8 @@ import java.util.Properties;
 
 import net.simpleframework.common.Convert;
 import net.simpleframework.ctx.common.xml.AbstractElementBean;
+import net.simpleframework.ctx.common.xml.XmlAttri;
 import net.simpleframework.ctx.common.xml.XmlElement;
-import net.simpleframework.ctx.common.xml.XmlElement.Attri;
 
 /**
  * Licensed under the Apache License, Version 2.0
@@ -96,7 +96,7 @@ public class AbstractNode extends AbstractElementBean {
 		}
 		final Iterator<?> it = properties.attributeIterator();
 		while (it.hasNext()) {
-			final Attri attribute = (Attri) it.next();
+			final XmlAttri attribute = (XmlAttri) it.next();
 			setProperty(attribute.getName(), attribute.getValue());
 		}
 	}
