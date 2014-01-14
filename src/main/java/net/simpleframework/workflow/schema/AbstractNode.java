@@ -78,12 +78,14 @@ public class AbstractNode extends AbstractElementBean {
 	@Override
 	public void syncElement() {
 		super.syncElement();
-		removeChildren("properties");
-		if (properties.size() > 0) {
-			final XmlElement pElement = addElement("properties");
-			for (final Map.Entry<?, ?> entry : properties.entrySet()) {
-				setElementAttribute(pElement, (String) entry.getKey(), entry.getValue());
-			}
+		XmlElement pElement = child("properties");
+		if (pElement == null) {
+			pElement = addElement("properties");
+		} else {
+			pElement.clearContent();
+		}
+		for (final Map.Entry<?, ?> entry : properties.entrySet()) {
+			setElementAttribute(pElement, (String) entry.getKey(), entry.getValue());
 		}
 	}
 
