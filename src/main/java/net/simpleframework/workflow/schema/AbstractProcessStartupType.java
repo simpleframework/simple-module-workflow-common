@@ -51,7 +51,7 @@ public abstract class AbstractProcessStartupType extends AbstractNode {
 
 			XmlElement ele2;
 			if ((ele2 = ptElement.element("role")) != null) {
-				participantType = new AbstractParticipantType.Role(ele2, this);
+				participantType = new AbstractParticipantType.BaseRole(ele2, this);
 			} else if ((ele2 = ptElement.element("user")) != null) {
 				participantType = new AbstractParticipantType.User(ele2, this);
 			}

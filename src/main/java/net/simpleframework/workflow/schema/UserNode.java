@@ -3,7 +3,6 @@ package net.simpleframework.workflow.schema;
 import static net.simpleframework.common.I18n.$m;
 import net.simpleframework.common.StringUtils;
 import net.simpleframework.ctx.common.xml.XmlElement;
-import net.simpleframework.workflow.schema.AbstractParticipantType.Role;
 
 /**
  * Licensed under the Apache License, Version 2.0
@@ -11,7 +10,6 @@ import net.simpleframework.workflow.schema.AbstractParticipantType.Role;
  * @author 陈侃(cknet@126.com, 13910090885) https://github.com/simpleframework
  *         http://www.simpleframework.net
  */
-@SuppressWarnings("unused")
 public class UserNode extends AbstractTaskNode {
 	private String formClass;
 
@@ -78,7 +76,7 @@ public class UserNode extends AbstractTaskNode {
 		}
 	}
 
-	public static class Role extends AbstractParticipantType.Role {
+	public static class Role extends AbstractParticipantType.BaseRole {
 		private String responseValue;
 
 		/**
@@ -133,7 +131,7 @@ public class UserNode extends AbstractTaskNode {
 			return manual;
 		}
 
-		public Role setManual(final boolean manual) {
+		public BaseRole setManual(final boolean manual) {
 			this.manual = manual;
 			return this;
 		}

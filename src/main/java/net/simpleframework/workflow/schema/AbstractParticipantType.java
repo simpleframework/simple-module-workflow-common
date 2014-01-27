@@ -24,9 +24,9 @@ public abstract class AbstractParticipantType extends AbstractNode {
 		return this;
 	}
 
-	public static class Role extends AbstractParticipantType {
+	public static class BaseRole extends AbstractParticipantType {
 
-		public Role(final XmlElement beanElement, final AbstractNode parent) {
+		public BaseRole(final XmlElement beanElement, final AbstractNode parent) {
 			super(beanElement == null ? addParticipant(parent, "role") : beanElement, parent);
 		}
 	}
