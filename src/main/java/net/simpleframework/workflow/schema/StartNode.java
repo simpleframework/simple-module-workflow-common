@@ -18,7 +18,7 @@ public class StartNode extends AbstractTaskNode {
 
 	@Override
 	public short getTasknodeType() {
-		return STARTNODE_TYPE;
+		return TT_START;
 	}
 
 	@Override

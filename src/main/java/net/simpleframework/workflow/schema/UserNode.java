@@ -42,7 +42,7 @@ public class UserNode extends AbstractTaskNode {
 
 	@Override
 	public short getTasknodeType() {
-		return USERNODE_TYPE;
+		return TT_USER;
 	}
 
 	@Override

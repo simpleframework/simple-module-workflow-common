@@ -15,13 +15,12 @@ import net.simpleframework.ctx.common.xml.XmlElement;
  *         http://www.simpleframework.net
  */
 public abstract class AbstractTaskNode extends Node {
-	public static final short STARTNODE_TYPE = 0;
 
-	public static final short ENDNODE_TYPE = 1;
-
-	public static final short USERNODE_TYPE = 2;
-
-	public static final short SUBNODE_TYPE = 3;
+	public static final short TT_START = 0;
+	public static final short TT_END = 1;
+	public static final short TT_USER = 2;
+	public static final short TT_SUB = 3;
+	public static final short TT_MERGE = 4;
 
 	public AbstractTaskNode(final XmlElement beanElement, final ProcessNode processNode) {
 		super(beanElement, processNode);

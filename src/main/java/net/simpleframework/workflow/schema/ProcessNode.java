@@ -213,6 +213,8 @@ public class ProcessNode extends Node {
 				node = new UserNode(ele, this);
 			} else if ("transition".equals(name)) {
 				node = new TransitionNode(ele, this);
+			} else if ("merge-node".equals(name)) {
+				node = new MergeNode(ele, this);
 			} else if ("sub-node".equals(name)) {
 				node = new SubNode(ele, this);
 			} else if ("start-node".equals(name)) {

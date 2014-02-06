@@ -10,19 +10,19 @@ import net.simpleframework.ctx.common.xml.XmlElement;
  * @author 陈侃(cknet@126.com, 13910090885) https://github.com/simpleframework
  *         http://www.simpleframework.net
  */
-public class EndNode extends AbstractTaskNode {
+public class MergeNode extends AbstractTaskNode {
 
-	public EndNode(final XmlElement beanElement, final ProcessNode processNode) {
-		super(beanElement == null ? addNode(processNode, "end-node") : beanElement, processNode);
+	public MergeNode(final XmlElement beanElement, final ProcessNode processNode) {
+		super(beanElement == null ? addNode(processNode, "merge-node") : beanElement, processNode);
 	}
 
 	@Override
 	public short getTasknodeType() {
-		return TT_END;
+		return TT_MERGE;
 	}
 
 	@Override
 	public String toString() {
-		return StringUtils.text(super.toString(), $m("EndNode.0"));
+		return StringUtils.text(super.toString(), $m("MergeNode.0"));
 	}
 }

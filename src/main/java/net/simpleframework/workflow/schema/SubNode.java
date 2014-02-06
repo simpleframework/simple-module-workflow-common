@@ -91,7 +91,7 @@ public class SubNode extends AbstractTaskNode {
 
 	@Override
 	public short getTasknodeType() {
-		return SUBNODE_TYPE;
+		return TT_SUB;
 	}
 
 	@Override
