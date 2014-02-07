@@ -125,6 +125,6 @@ public class VariableNode extends AbstractNode {
 	}
 
 	static XmlElement addVariable(final AbstractNode parent, final String name) {
-		return parent.addChild("variables", name, false);
+		return parent.child("variables", true).addElement(name);
 	}
 }

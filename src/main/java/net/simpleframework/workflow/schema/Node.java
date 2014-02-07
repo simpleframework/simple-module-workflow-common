@@ -110,6 +110,6 @@ public abstract class Node extends AbstractNode {
 	}
 
 	static XmlElement addNode(final ProcessNode processNode, final String name) {
-		return processNode.addChild("nodes", name, false);
+		return processNode.child("nodes", true).addElement(name);
 	}
 }

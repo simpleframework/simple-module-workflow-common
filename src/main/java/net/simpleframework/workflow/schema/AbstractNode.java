@@ -1,11 +1,11 @@
 package net.simpleframework.workflow.schema;
 
-import java.util.Collections;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Properties;
 
 import net.simpleframework.common.Convert;
+import net.simpleframework.common.coll.CollectionUtils;
 import net.simpleframework.ctx.common.xml.AbstractElementBean;
 import net.simpleframework.ctx.common.xml.XmlAttri;
 import net.simpleframework.ctx.common.xml.XmlElement;
@@ -30,19 +30,17 @@ public class AbstractNode extends AbstractElementBean {
 	}
 
 	protected Iterator<?> children(final String name) {
-		final XmlElement parent = child(name);
-		final Iterator<?> it = parent != null ? parent.elementIterator() : null;
-		return it != null ? it : Collections.emptyList().iterator();
+		final XmlElement parent = getElement().element(name);
+		return parent != null ? parent.elementIterator() : CollectionUtils.EMPTY_ITERATOR;
 	}
 
-	protected XmlElement addChild(final String parentName, final String name, final boolean clear) {
-		XmlElement parent = child(parentName);
-		if (parent == null) {
-			parent = addElement(parentName);
-		} else if (clear) {
-			parent.clearContent();
+	protected XmlElement child(final String name, final boolean insert) {
+		final XmlElement element = getElement();
+		XmlElement child = element.element(name);
+		if (child == null && insert) {
+			child = element.addElement(name);
 		}
-		return parent.addElement(name);
+		return child;
 	}
 
 	private final Properties properties = new Properties();
@@ -78,21 +76,20 @@ public class AbstractNode extends AbstractElementBean {
 	@Override
 	public void syncElement() {
 		super.syncElement();
-		XmlElement pElement = child("properties");
-		if (pElement == null) {
-			pElement = addElement("properties");
-		} else {
+
+		final XmlElement pElement = child("properties", properties.size() > 0);
+		if (pElement != null) {
 			pElement.clearContent();
-		}
-		for (final Map.Entry<?, ?> entry : properties.entrySet()) {
-			setElementAttribute(pElement, (String) entry.getKey(), entry.getValue());
+			for (final Map.Entry<?, ?> entry : properties.entrySet()) {
+				setElementAttribute(pElement, (String) entry.getKey(), entry.getValue());
+			}
 		}
 	}
 
 	@Override
 	public void parseElement() {
 		super.parseElement();
-		final XmlElement properties = child("properties");
+		final XmlElement properties = getElement().element("properties");
 		if (properties == null) {
 			return;
 		}

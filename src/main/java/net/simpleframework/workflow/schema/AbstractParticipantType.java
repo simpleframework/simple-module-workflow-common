@@ -39,6 +39,6 @@ public abstract class AbstractParticipantType extends AbstractNode {
 	}
 
 	static XmlElement addParticipant(final AbstractNode parent, final String name) {
-		return parent.addChild("participant-type", name, true);
+		return parent.child("participant-type", true).clearContent().addElement(name);
 	}
 }

@@ -100,6 +100,6 @@ public class AbstractTransitionType extends AbstractNode {
 	}
 
 	static XmlElement addTransitionType(final TransitionNode transition, final String name) {
-		return transition.addChild("transition-type", name, true);
+		return transition.child("transition-type", true).clearContent().addElement(name);
 	}
 }

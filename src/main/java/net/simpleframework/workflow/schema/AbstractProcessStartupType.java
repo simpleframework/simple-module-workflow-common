@@ -43,7 +43,7 @@ public abstract class AbstractProcessStartupType extends AbstractNode {
 		public void parseElement() {
 			super.parseElement();
 
-			final XmlElement element = getBeanElement();
+			final XmlElement element = getElement();
 			final XmlElement ptElement = element != null ? element.element("participant-type") : null;
 			if (ptElement == null) {
 				return;
@@ -66,6 +66,6 @@ public abstract class AbstractProcessStartupType extends AbstractNode {
 	}
 
 	static XmlElement addStartupType(final ProcessNode processNode, final String name) {
-		return processNode.addChild("startup-type", name, true);
+		return processNode.child("startup-type", true).clearContent().addElement(name);
 	}
 }

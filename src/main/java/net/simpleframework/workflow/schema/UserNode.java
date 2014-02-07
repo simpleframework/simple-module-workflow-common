@@ -60,18 +60,18 @@ public class UserNode extends AbstractTaskNode {
 	public void parseElement() {
 		super.parseElement();
 
-		final XmlElement ptElement = child("participant-type");
-		if (ptElement == null) {
+		final XmlElement element = getElement().element("participant-type");
+		if (element == null) {
 			return;
 		}
 		XmlElement ele2;
-		if ((ele2 = ptElement.element("role")) != null) {
+		if ((ele2 = element.element("role")) != null) {
 			setParticipantType(new Role(ele2, this));
-		} else if ((ele2 = ptElement.element("relative-role")) != null) {
+		} else if ((ele2 = element.element("relative-role")) != null) {
 			setParticipantType(new RelativeRole(ele2, this));
-		} else if ((ele2 = ptElement.element("user")) != null) {
+		} else if ((ele2 = element.element("user")) != null) {
 			setParticipantType(new AbstractParticipantType.User(ele2, this));
-		} else if ((ele2 = ptElement.element("rule-role")) != null) {
+		} else if ((ele2 = element.element("rule-role")) != null) {
 			setParticipantType(new RuleRole(ele2, this));
 		}
 	}

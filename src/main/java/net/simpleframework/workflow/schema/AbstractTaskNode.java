@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
+import java.util.Set;
 
 import net.simpleframework.ctx.common.xml.XmlElement;
 
@@ -61,15 +62,13 @@ public abstract class AbstractTaskNode extends Node {
 			variable.syncElement();
 		}
 
-		XmlElement listenersElement = child("listeners");
-		if (listenersElement == null) {
-			listenersElement = addElement("listeners");
-		} else {
+		final Set<String> listeners = listeners();
+		final XmlElement listenersElement = child("listeners", listeners.size() > 0);
+		if (listenersElement != null) {
 			listenersElement.clearContent();
-		}
-
-		for (final String listenerClass : listeners()) {
-			addElement(listenersElement, "listener").setText(listenerClass);
+			for (final String listenerClass : listeners) {
+				listenersElement.addElement("listener").setText(listenerClass);
+			}
 		}
 	}
 

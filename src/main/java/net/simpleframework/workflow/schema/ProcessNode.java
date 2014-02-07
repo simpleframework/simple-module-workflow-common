@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.Map;
+import java.util.Set;
 
 import net.simpleframework.common.Version;
 import net.simpleframework.ctx.common.xml.XmlElement;
@@ -179,21 +180,20 @@ public class ProcessNode extends Node {
 			variable.syncElement();
 		}
 
-		XmlElement listenersElement = child("listeners");
-		if (listenersElement == null) {
-			listenersElement = addElement("listeners");
-		} else {
+		final Set<String> listeners = listeners();
+		final XmlElement listenersElement = child("listeners", listeners.size() > 0);
+		if (listenersElement != null) {
 			listenersElement.clearContent();
-		}
-		for (final String listenerClass : listeners()) {
-			addElement(listenersElement, "listener").setText(listenerClass);
+			for (final String listenerClass : listeners) {
+				listenersElement.addElement("listener").setText(listenerClass);
+			}
 		}
 	}
 
 	@Override
 	public void parseElement() {
 		super.parseElement();
-		XmlElement ele = child("startup-type");
+		XmlElement ele = getElement().element("startup-type");
 		if (ele != null) {
 			XmlElement ele2;
 			if ((ele2 = ele.element("manual")) != null) {

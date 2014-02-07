@@ -64,14 +64,13 @@ public class SubNode extends AbstractTaskNode {
 	public void syncElement() {
 		super.syncElement();
 
-		XmlElement vMappingElement = child("variable-mapping");
-		if (vMappingElement == null) {
-			vMappingElement = addElement("variable-mapping");
-		} else {
-			vMappingElement.clearContent();
-		}
-		for (final VariableMapping vMapping : getMappingSet()) {
-			addElement(vMappingElement, "value").setText(vMapping.toString());
+		final Set<VariableMapping> mappingSet = getMappingSet();
+		final XmlElement element = child("variable-mapping", mappingSet.size() > 0);
+		if (element != null) {
+			element.clearContent();
+			for (final VariableMapping vMapping : mappingSet) {
+				element.addElement("value").setText(vMapping.toString());
+			}
 		}
 	}
 

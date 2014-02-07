@@ -64,7 +64,7 @@ public class TransitionNode extends Node {
 	@Override
 	public void parseElement() {
 		super.parseElement();
-		final XmlElement ele = child("transition-type");
+		final XmlElement ele = getElement().element("transition-type");
 		if (ele == null) {
 			return;
 		}
