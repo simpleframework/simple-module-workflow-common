@@ -12,8 +12,20 @@ import net.simpleframework.ctx.common.xml.XmlElement;
  */
 public class MergeNode extends AbstractTaskNode {
 
+	/* 计数器，决定合并是否完成 */
+	private int count;
+
 	public MergeNode(final XmlElement beanElement, final ProcessNode processNode) {
 		super(beanElement == null ? addNode(processNode, "merge-node") : beanElement, processNode);
+	}
+
+	public int getCount() {
+		return count;
+	}
+
+	public MergeNode setCount(final int count) {
+		this.count = count;
+		return this;
 	}
 
 	@Override
