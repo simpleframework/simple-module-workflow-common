@@ -25,7 +25,7 @@ public class AbstractNode extends AbstractElementBean {
 		parseElement();
 	}
 
-	public AbstractNode parent() {
+	public AbstractNode getParent() {
 		return parent;
 	}
 

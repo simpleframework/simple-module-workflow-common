@@ -23,7 +23,7 @@ public class TransitionNode extends Node {
 	}
 
 	public AbstractTaskNode from() {
-		return (AbstractTaskNode) ((ProcessNode) parent()).getNodeById(getFrom());
+		return (AbstractTaskNode) ((ProcessNode) getParent()).getNodeById(getFrom());
 	}
 
 	public TransitionNode setFrom(final String from) {
@@ -36,7 +36,7 @@ public class TransitionNode extends Node {
 	}
 
 	public AbstractTaskNode to() {
-		return (AbstractTaskNode) ((ProcessNode) parent()).getNodeById(getTo());
+		return (AbstractTaskNode) ((ProcessNode) getParent()).getNodeById(getTo());
 	}
 
 	public TransitionNode setTo(final String to) {

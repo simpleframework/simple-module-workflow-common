@@ -31,7 +31,7 @@ public abstract class AbstractTaskNode extends Node {
 
 	public Collection<TransitionNode> fromTransitions() {
 		final ArrayList<TransitionNode> al = new ArrayList<TransitionNode>();
-		for (final Node node : ((ProcessNode) parent()).nodes()) {
+		for (final Node node : ((ProcessNode) getParent()).nodes()) {
 			if (node instanceof TransitionNode) {
 				final TransitionNode transition = (TransitionNode) node;
 				if (getId().equals(transition.getTo())) {
@@ -44,7 +44,7 @@ public abstract class AbstractTaskNode extends Node {
 
 	public Collection<TransitionNode> toTransitions() {
 		final ArrayList<TransitionNode> al = new ArrayList<TransitionNode>();
-		for (final Node node : ((ProcessNode) parent()).nodes()) {
+		for (final Node node : ((ProcessNode) getParent()).nodes()) {
 			if (node instanceof TransitionNode) {
 				final TransitionNode transition = (TransitionNode) node;
 				if (getId().equals(transition.getFrom())) {
