@@ -20,14 +20,9 @@ import net.simpleframework.workflow.schema.ProcessDocument;
 import net.simpleframework.workflow.schema.StartNode;
 import net.simpleframework.workflow.schema.TransitionNode;
 
-import com.mxgraph.canvas.mxICanvas;
-import com.mxgraph.canvas.mxSvgCanvas;
 import com.mxgraph.util.mxCellRenderer;
-import com.mxgraph.util.mxCellRenderer.CanvasFactory;
 import com.mxgraph.util.mxConstants;
-import com.mxgraph.util.mxDomUtils;
 import com.mxgraph.util.mxPoint;
-import com.mxgraph.util.mxXmlUtils;
 import com.mxgraph.view.mxEdgeStyle;
 import com.mxgraph.view.mxGraph;
 
@@ -98,20 +93,6 @@ public abstract class GraphUtils {
 		}
 
 		return graph;
-	}
-
-	public static String getEmbeddedSVG(final mxGraph graph) {
-		final mxSvgCanvas canvas = (mxSvgCanvas) mxCellRenderer.drawCells(graph, null, 1, null,
-				new CanvasFactory() {
-					@Override
-					public mxICanvas createCanvas(final int width, final int height) {
-						final mxSvgCanvas canvas = new mxSvgCanvas(mxDomUtils.createSvgDocument(width,
-								height));
-						canvas.setEmbedded(true);
-						return canvas;
-					}
-				});
-		return mxXmlUtils.getXml(canvas.getDocument());
 	}
 
 	public static void writePNG(final mxGraph graph, final OutputStream oStream) throws IOException {
