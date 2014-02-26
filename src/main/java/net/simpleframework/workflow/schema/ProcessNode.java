@@ -207,7 +207,7 @@ public class ProcessNode extends Node {
 		Iterator<?> it = children("nodes");
 		while (it.hasNext()) {
 			ele = (XmlElement) it.next();
-			final String name = ele.getName();
+			final String name = ele.getTagName();
 			Node node = null;
 			if ("user-node".equals(name)) {
 				node = new UserNode(ele, this);
