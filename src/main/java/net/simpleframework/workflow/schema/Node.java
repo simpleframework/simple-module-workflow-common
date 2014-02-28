@@ -101,7 +101,8 @@ public abstract class Node extends AbstractNode {
 
 	@Override
 	public String toString() {
-		return StringUtils.text(getText(), getName());
+		final String txt = getText();
+		return StringUtils.hasText(txt) ? txt : getName();
 	}
 
 	@Override

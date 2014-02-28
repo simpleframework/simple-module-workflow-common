@@ -83,18 +83,18 @@ public class AbstractTransitionType extends AbstractNode {
 	}
 
 	public static class Interface extends AbstractTransitionType {
-		private String handleClass;
+		private String handlerClass;
 
 		public Interface(final XmlElement beanElement, final TransitionNode parent) {
 			super(beanElement == null ? addTransitionType(parent, "interface") : beanElement, parent);
 		}
 
-		public String getHandleClass() {
-			return handleClass;
+		public String getHandlerClass() {
+			return handlerClass;
 		}
 
-		public Interface setHandleClass(final String handleClass) {
-			this.handleClass = handleClass;
+		public Interface setHandlerClass(final String handlerClass) {
+			this.handlerClass = handlerClass;
 			return this;
 		}
 	}
