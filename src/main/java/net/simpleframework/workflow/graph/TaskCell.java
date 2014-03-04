@@ -31,7 +31,7 @@ public class TaskCell extends mxCell {
 		final StringBuilder sb = new StringBuilder();
 		sb.append("taskid=").append(taskNode.getId()).append(";shape=image;align=center;");
 		sb.append("verticalLabelPosition=bottom;spacingBottom=6;");
-		sb.append("resizable=0;editable=0;autosize=1;");
+		sb.append("resizable=0;editable=0;autosize=1;fontFamily=Microsoft YaHei;");
 		sb.append("image=/")
 				.append(StringUtils.replace(TaskCell.class.getPackage().getName(), ".", "/"))
 				.append("/$resource/images/");

@@ -13,6 +13,8 @@ import net.simpleframework.ctx.common.xml.XmlElement;
 public class UserNode extends AbstractTaskNode {
 	private String formClass;
 
+	private String timoutHours;
+
 	private AbstractParticipantType participantType;
 
 	public UserNode(final XmlElement beanElement, final ProcessNode processNode) {
@@ -37,6 +39,15 @@ public class UserNode extends AbstractTaskNode {
 
 	public UserNode setFormClass(final String formClass) {
 		this.formClass = formClass;
+		return this;
+	}
+
+	public String getTimoutHours() {
+		return timoutHours;
+	}
+
+	public UserNode setTimoutHours(final String timoutHours) {
+		this.timoutHours = timoutHours;
 		return this;
 	}
 
