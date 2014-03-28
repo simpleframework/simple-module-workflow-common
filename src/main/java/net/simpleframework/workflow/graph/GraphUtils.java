@@ -71,7 +71,7 @@ public abstract class GraphUtils {
 				final double offsetX = transition.getDoubleProperty("offset-x");
 				final double offsetY = transition.getDoubleProperty("offset-y");
 
-				List<mxPoint> points = new ArrayList<mxPoint>();
+				final List<mxPoint> points = new ArrayList<mxPoint>();
 				for (final String pointStr : StringUtils.split(transition.getProperty("points"), ";")) {
 					final String[] arr = StringUtils.split(pointStr, ",");
 					if (arr.length == 2) {
