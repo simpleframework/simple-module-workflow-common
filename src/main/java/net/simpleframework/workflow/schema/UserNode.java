@@ -207,11 +207,20 @@ public class UserNode extends AbstractTaskNode {
 
 	// 规则角色
 	public static class RuleRole extends Role {
+		/* 规则所需参数 */
+		private String params;
 
 		public RuleRole(final XmlElement beanElement, final UserNode parent) {
 			super(beanElement == null ? addParticipant(parent, "rule-role") : beanElement, parent);
 		}
 
+		public String getParams() {
+			return params;
+		}
+
+		public void setParams(String params) {
+			this.params = params;
+		}
 	}
 
 	public static enum ERelativeType {
