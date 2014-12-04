@@ -218,7 +218,7 @@ public class UserNode extends AbstractTaskNode {
 			return params;
 		}
 
-		public void setParams(String params) {
+		public void setParams(final String params) {
 			this.params = params;
 		}
 	}
