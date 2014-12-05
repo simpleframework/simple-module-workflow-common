@@ -177,6 +177,9 @@ public class UserNode extends AbstractTaskNode {
 		 */
 		private String relative;
 
+		/* 是否相对关系限定在同一部门 */
+		private boolean indept;
+
 		private String preActivity;
 
 		public RelativeRole(final XmlElement beanElement, final UserNode parent) {
@@ -198,6 +201,15 @@ public class UserNode extends AbstractTaskNode {
 
 		public void setRelative(final String relative) {
 			this.relative = relative;
+		}
+
+		public boolean isIndept() {
+			return indept;
+		}
+
+		public RelativeRole setIndept(boolean indept) {
+			this.indept = indept;
+			return this;
 		}
 
 		public String getPreActivity() {
