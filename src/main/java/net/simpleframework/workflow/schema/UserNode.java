@@ -29,7 +29,7 @@ public class UserNode extends AbstractTaskNode {
 		return multiTransitionSelected;
 	}
 
-	public UserNode setMultiTransitionSelected(boolean multiTransitionSelected) {
+	public UserNode setMultiTransitionSelected(final boolean multiTransitionSelected) {
 		this.multiTransitionSelected = multiTransitionSelected;
 		return this;
 	}
@@ -207,7 +207,7 @@ public class UserNode extends AbstractTaskNode {
 			return indept;
 		}
 
-		public RelativeRole setIndept(boolean indept) {
+		public RelativeRole setIndept(final boolean indept) {
 			this.indept = indept;
 			return this;
 		}
