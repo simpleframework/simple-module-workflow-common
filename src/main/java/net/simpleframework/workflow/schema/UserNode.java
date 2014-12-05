@@ -11,14 +11,27 @@ import net.simpleframework.ctx.common.xml.XmlElement;
  *         http://www.simpleframework.net
  */
 public class UserNode extends AbstractTaskNode {
+	/* 表单类 */
 	private String formClass;
 
 	private String timoutHours;
 
 	private AbstractParticipantType participantType;
 
+	/* 是否允许选择多个后续路由(手动模式) */
+	private boolean multiTransitionSelected;
+
 	public UserNode(final XmlElement beanElement, final ProcessNode processNode) {
 		super(beanElement == null ? addNode(processNode, "user-node") : beanElement, processNode);
+	}
+
+	public boolean isMultiTransitionSelected() {
+		return multiTransitionSelected;
+	}
+
+	public UserNode setMultiTransitionSelected(boolean multiTransitionSelected) {
+		this.multiTransitionSelected = multiTransitionSelected;
+		return this;
 	}
 
 	public AbstractParticipantType getParticipantType() {
@@ -90,24 +103,16 @@ public class UserNode extends AbstractTaskNode {
 	public static class Role extends AbstractParticipantType.BaseRole {
 		private String responseValue;
 
-		/**
-		 * 当多个参与者时，是否顺序执行当前任务
-		 */
+		/* 当多个参与者时，是否顺序执行当前任务 */
 		private boolean sequential;
 
-		/**
-		 * 当多个参与者时，是否共享同一个任务实例
-		 */
+		/* 当多个参与者时，是否共享同一个任务实例 */
 		private boolean instanceShared;
 
-		/**
-		 * 手动模式，选取参与者
-		 */
+		/* 手动模式，选取参与者 */
 		private boolean manual;
 
-		/**
-		 * 在手动模式下，是否允许选择多个参与者
-		 */
+		/* 在手动模式下，是否允许选择多个参与者 */
 		private boolean multiSelected;
 
 		public Role(final XmlElement beanElement, final UserNode parent) {
