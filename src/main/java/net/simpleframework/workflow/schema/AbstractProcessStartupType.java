@@ -1,6 +1,7 @@
 package net.simpleframework.workflow.schema;
 
 import net.simpleframework.ctx.common.xml.XmlElement;
+import net.simpleframework.ctx.script.IScriptEval;
 
 /**
  * Licensed under the Apache License, Version 2.0
@@ -40,8 +41,8 @@ public abstract class AbstractProcessStartupType extends AbstractNode {
 		}
 
 		@Override
-		public void parseElement() {
-			super.parseElement();
+		public void parseElement(final IScriptEval scriptEval) {
+			super.parseElement(scriptEval);
 
 			final XmlElement element = getElement();
 			final XmlElement ptElement = element != null ? element.element("participant-type") : null;

@@ -3,6 +3,7 @@ package net.simpleframework.workflow.schema;
 import static net.simpleframework.common.I18n.$m;
 import net.simpleframework.common.StringUtils;
 import net.simpleframework.ctx.common.xml.XmlElement;
+import net.simpleframework.ctx.script.IScriptEval;
 
 /**
  * Licensed under the Apache License, Version 2.0
@@ -81,8 +82,8 @@ public class UserNode extends AbstractTaskNode {
 	}
 
 	@Override
-	public void parseElement() {
-		super.parseElement();
+	public void parseElement(final IScriptEval scriptEval) {
+		super.parseElement(scriptEval);
 
 		final XmlElement element = getElement().element("participant-type");
 		if (element == null) {
@@ -161,9 +162,9 @@ public class UserNode extends AbstractTaskNode {
 		}
 
 		@Override
-		public void parseElement() {
+		public void parseElement(final IScriptEval scriptEval) {
 			instanceShared = true;
-			super.parseElement();
+			super.parseElement(scriptEval);
 		}
 	}
 

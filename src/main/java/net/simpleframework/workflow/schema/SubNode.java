@@ -9,6 +9,7 @@ import java.util.Set;
 import net.simpleframework.common.Convert;
 import net.simpleframework.common.StringUtils;
 import net.simpleframework.ctx.common.xml.XmlElement;
+import net.simpleframework.ctx.script.IScriptEval;
 
 /**
  * Licensed under the Apache License, Version 2.0
@@ -75,8 +76,8 @@ public class SubNode extends AbstractTaskNode {
 	}
 
 	@Override
-	public void parseElement() {
-		super.parseElement();
+	public void parseElement(final IScriptEval scriptEval) {
+		super.parseElement(scriptEval);
 
 		mappingSet = new LinkedHashSet<VariableMapping>();
 		final Iterator<?> it = children("variable-mapping");

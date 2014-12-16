@@ -10,6 +10,7 @@ import java.util.Set;
 
 import net.simpleframework.common.Version;
 import net.simpleframework.ctx.common.xml.XmlElement;
+import net.simpleframework.ctx.script.IScriptEval;
 import net.simpleframework.workflow.WorkflowException;
 
 /**
@@ -191,8 +192,8 @@ public class ProcessNode extends Node {
 	}
 
 	@Override
-	public void parseElement() {
-		super.parseElement();
+	public void parseElement(final IScriptEval scriptEval) {
+		super.parseElement(scriptEval);
 		XmlElement ele = getElement().element("startup-type");
 		if (ele != null) {
 			XmlElement ele2;

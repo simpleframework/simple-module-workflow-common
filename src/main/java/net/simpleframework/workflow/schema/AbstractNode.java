@@ -9,6 +9,7 @@ import net.simpleframework.common.coll.CollectionUtils;
 import net.simpleframework.ctx.common.xml.AbstractElementBean;
 import net.simpleframework.ctx.common.xml.XmlAttri;
 import net.simpleframework.ctx.common.xml.XmlElement;
+import net.simpleframework.ctx.script.IScriptEval;
 
 /**
  * Licensed under the Apache License, Version 2.0
@@ -22,7 +23,10 @@ public class AbstractNode extends AbstractElementBean {
 	public AbstractNode(final XmlElement beanElement, final AbstractNode parent) {
 		super(beanElement);
 		this.parent = parent;
-		parseElement();
+
+		if (beanElement != null) {
+			parseElement(null);
+		}
 	}
 
 	public AbstractNode getParent() {
@@ -87,8 +91,8 @@ public class AbstractNode extends AbstractElementBean {
 	}
 
 	@Override
-	public void parseElement() {
-		super.parseElement();
+	public void parseElement(final IScriptEval scriptEval) {
+		super.parseElement(scriptEval);
 		final XmlElement properties = getElement().element("properties");
 		if (properties == null) {
 			return;

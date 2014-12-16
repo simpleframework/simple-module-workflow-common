@@ -8,6 +8,7 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 
 import net.simpleframework.ctx.common.xml.XmlElement;
+import net.simpleframework.ctx.script.IScriptEval;
 
 /**
  * Licensed under the Apache License, Version 2.0
@@ -73,8 +74,8 @@ public abstract class AbstractTaskNode extends Node {
 	}
 
 	@Override
-	public void parseElement() {
-		super.parseElement();
+	public void parseElement(final IScriptEval scriptEval) {
+		super.parseElement(scriptEval);
 
 		variables = new HashMap<String, VariableNode>();
 		Iterator<?> it = children("variables");
