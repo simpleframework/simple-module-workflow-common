@@ -22,6 +22,9 @@ public class UserNode extends AbstractTaskNode {
 	/* 是否允许选择多个后续路由(手动模式) */
 	private boolean multiTransitionSelected;
 
+	/* 是否空节点 */
+	private boolean empty;
+
 	public UserNode(final XmlElement beanElement, final ProcessNode processNode) {
 		super(beanElement == null ? addNode(processNode, "user-node") : beanElement, processNode);
 	}
@@ -68,6 +71,15 @@ public class UserNode extends AbstractTaskNode {
 	@Override
 	public short getTasknodeType() {
 		return TT_USER;
+	}
+
+	public boolean isEmpty() {
+		return empty;
+	}
+
+	public UserNode setEmpty(final boolean empty) {
+		this.empty = empty;
+		return this;
 	}
 
 	@Override
