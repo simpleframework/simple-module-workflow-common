@@ -94,13 +94,12 @@ public class AbstractNode extends AbstractElementBean {
 	public void parseElement(final IScriptEval scriptEval) {
 		super.parseElement(scriptEval);
 		final XmlElement properties = getElement().element("properties");
-		if (properties == null) {
-			return;
-		}
-		final Iterator<?> it = properties.attributeIterator();
-		while (it.hasNext()) {
-			final XmlAttri attribute = (XmlAttri) it.next();
-			setProperty(attribute.getName(), attribute.getValue());
+		if (properties != null) {
+			final Iterator<?> it = properties.attributeIterator();
+			while (it.hasNext()) {
+				final XmlAttri attribute = (XmlAttri) it.next();
+				setProperty(attribute.getName(), attribute.getValue());
+			}
 		}
 	}
 

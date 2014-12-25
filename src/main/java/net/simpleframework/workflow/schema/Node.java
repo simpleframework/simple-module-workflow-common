@@ -2,7 +2,10 @@ package net.simpleframework.workflow.schema;
 
 import static net.simpleframework.common.I18n.$m;
 
+import java.io.IOException;
+import java.io.StringReader;
 import java.util.Map;
+import java.util.Properties;
 import java.util.Set;
 
 import net.simpleframework.common.ID;
@@ -20,6 +23,8 @@ public abstract class Node extends AbstractNode {
 	private String id;
 
 	private String name, text;
+
+	private String ext;
 
 	private String description;
 
@@ -54,6 +59,16 @@ public abstract class Node extends AbstractNode {
 
 	public Node setText(final String text) {
 		this.text = text;
+		return this;
+	}
+
+	public String getExt() {
+		return ext;
+	}
+
+	public Node setExt(final String ext) {
+		this.ext = ext;
+		_ext = null;
 		return this;
 	}
 
@@ -105,9 +120,27 @@ public abstract class Node extends AbstractNode {
 		return StringUtils.hasText(txt) ? txt : getName();
 	}
 
+	private Properties _ext;
+
+	@Override
+	public String getProperty(final String key) {
+		String val = super.getProperty(key);
+		if (val == null) {
+			if (_ext == null) {
+				_ext = new Properties();
+				try {
+					_ext.load(new StringReader(StringUtils.blank(getExt())));
+				} catch (final IOException e) {
+				}
+			}
+			val = _ext.getProperty(key);
+		}
+		return val;
+	}
+
 	@Override
 	protected String[] elementAttributes() {
-		return new String[] { "description" };
+		return new String[] { "ext", "description" };
 	}
 
 	static XmlElement addNode(final ProcessNode processNode, final String name) {
