@@ -13,7 +13,7 @@ import net.simpleframework.ctx.common.xml.XmlElement;
 public class MergeNode extends AbstractTaskNode {
 
 	/* 计数器，决定合并是否完成 */
-	private String condition;
+	private String condition = "0";
 
 	public MergeNode(final XmlElement beanElement, final ProcessNode processNode) {
 		super(beanElement == null ? addNode(processNode, "merge-node") : beanElement, processNode);
