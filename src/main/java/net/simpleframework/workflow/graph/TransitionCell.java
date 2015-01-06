@@ -29,9 +29,9 @@ public class TransitionCell extends mxCell {
 		geometry.setPoints(points);
 		geometry.setOffset(offset);
 		setGeometry(geometry);
-
+		// mxEdgeStyle.EntityRelation
 		final StringBuilder sb = new StringBuilder();
-		// sb.append("edgeStyle=mxEdgeStyle.EntityRelation;");
+		sb.append("edgeStyle=mxEdgeStyle.ElbowConnector;");
 		sb.append("editable=0");
 		setStyle(sb.toString());
 	}
