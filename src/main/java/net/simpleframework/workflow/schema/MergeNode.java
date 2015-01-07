@@ -20,7 +20,7 @@ public class MergeNode extends AbstractTaskNode {
 	}
 
 	public String getCondition() {
-		return condition  ;
+		return condition;
 	}
 
 	public MergeNode setCondition(final String condition) {
