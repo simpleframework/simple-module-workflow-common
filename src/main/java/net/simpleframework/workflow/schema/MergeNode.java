@@ -13,14 +13,14 @@ import net.simpleframework.ctx.common.xml.XmlElement;
 public class MergeNode extends AbstractTaskNode {
 
 	/* 计数器，决定合并是否完成 */
-	private String condition = "0";
+	private String condition;
 
 	public MergeNode(final XmlElement beanElement, final ProcessNode processNode) {
 		super(beanElement == null ? addNode(processNode, "merge-node") : beanElement, processNode);
 	}
 
 	public String getCondition() {
-		return condition;
+		return condition  ;
 	}
 
 	public MergeNode setCondition(final String condition) {
