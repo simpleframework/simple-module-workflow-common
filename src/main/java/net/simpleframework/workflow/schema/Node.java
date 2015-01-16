@@ -54,6 +54,9 @@ public abstract class Node extends AbstractNode {
 	}
 
 	public String getText() {
+		if (!StringUtils.hasText(text)) {
+			text = getName();
+		}
 		return text;
 	}
 
