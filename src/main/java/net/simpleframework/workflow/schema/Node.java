@@ -4,12 +4,15 @@ import static net.simpleframework.common.I18n.$m;
 
 import java.io.IOException;
 import java.io.StringReader;
+import java.io.StringWriter;
 import java.util.Map;
-import java.util.Properties;
 import java.util.Set;
 
+import net.simpleframework.common.Convert;
 import net.simpleframework.common.ID;
+import net.simpleframework.common.PropertiesEx;
 import net.simpleframework.common.StringUtils;
+import net.simpleframework.common.object.ObjectUtils;
 import net.simpleframework.ctx.common.xml.XmlElement;
 import net.simpleframework.workflow.WorkflowException;
 
@@ -65,14 +68,51 @@ public abstract class Node extends AbstractNode {
 		return this;
 	}
 
+	private PropertiesEx _ext;
+	private boolean _setPropertyEx;
+
 	public String getExt() {
+		if (_setPropertyEx && _ext != null) {
+			StringWriter writer = new StringWriter();
+			try {
+				_ext.store(writer, null);
+				ext = writer.toString();
+				_setPropertyEx = false;
+			} catch (IOException e) {
+			}
+		}
 		return ext;
 	}
 
 	public Node setExt(final String ext) {
-		this.ext = ext;
-		_ext = null;
+		if (!ObjectUtils.objectEquals(this.ext, ext)) {
+			this.ext = ext;
+			if (ext != null) {
+				_ext = new PropertiesEx();
+				try {
+					_ext.load(new StringReader(ext));
+				} catch (final IOException e) {
+				}
+			}
+		}
 		return this;
+	}
+
+	@Override
+	public String getProperty(final String key) {
+		String val = super.getProperty(key);
+		if (val == null && _ext != null) {
+			val = _ext.getProperty(key);
+		}
+		return val;
+	}
+
+	public void setPropertyEx(final String key, final Object value) {
+		if (_ext == null) {
+			_ext = new PropertiesEx();
+		}
+		_ext.setProperty(key, Convert.toString(value));
+		_setPropertyEx = true;
 	}
 
 	public String getDescription() {
@@ -121,24 +161,6 @@ public abstract class Node extends AbstractNode {
 	public String toString() {
 		final String txt = getText();
 		return StringUtils.hasText(txt) ? txt : getName();
-	}
-
-	private Properties _ext;
-
-	@Override
-	public String getProperty(final String key) {
-		String val = super.getProperty(key);
-		if (val == null) {
-			if (_ext == null) {
-				_ext = new Properties();
-				try {
-					_ext.load(new StringReader(StringUtils.blank(getExt())));
-				} catch (final IOException e) {
-				}
-			}
-			val = _ext.getProperty(key);
-		}
-		return val;
 	}
 
 	@Override
