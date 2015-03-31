@@ -73,12 +73,12 @@ public abstract class Node extends AbstractNode {
 
 	public String getExt() {
 		if (_setPropertyEx && _ext != null) {
-			StringWriter writer = new StringWriter();
+			final StringWriter writer = new StringWriter();
 			try {
 				_ext.store(writer, null);
 				ext = writer.toString();
 				_setPropertyEx = false;
-			} catch (IOException e) {
+			} catch (final IOException e) {
 			}
 		}
 		return ext;
