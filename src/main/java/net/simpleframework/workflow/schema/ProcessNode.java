@@ -20,17 +20,18 @@ import net.simpleframework.workflow.WorkflowException;
  *         http://www.simpleframework.net
  */
 public class ProcessNode extends Node {
-
+	/* 版本 */
 	private Version version;
-
+	/* 作者 */
 	private String author;
 
-	/*
-	 * 含义：判断模型是流程实例共享，还是为每一个流程实例复制一个拷贝
-	 */
+	/* 含义：判断模型是流程实例共享，还是为每一个流程实例复制一个拷贝 */
 	private boolean instanceShared;
 
+	/* 待办表单 */
 	private String formClass;
+	/* 待阅表单 */
+	private String viewClass;
 
 	private AbstractProcessStartupType startupType;
 
@@ -76,6 +77,15 @@ public class ProcessNode extends Node {
 
 	public ProcessNode setFormClass(final String formClass) {
 		this.formClass = formClass;
+		return this;
+	}
+
+	public String getViewClass() {
+		return viewClass;
+	}
+
+	public ProcessNode setViewClass(final String viewClass) {
+		this.viewClass = viewClass;
 		return this;
 	}
 
