@@ -36,6 +36,7 @@ public abstract class GraphUtils {
 
 	public static mxGraph createGraph(final ProcessDocument doc) {
 		final mxGraph graph = new mxGraph();
+		graph.setResetEdgesOnConnect(false);
 
 		// 装载缺省的style
 		final Map<String, Object> style = graph.getStylesheet().getDefaultEdgeStyle();
