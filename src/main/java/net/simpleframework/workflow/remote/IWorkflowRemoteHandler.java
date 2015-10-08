@@ -11,7 +11,7 @@ import net.simpleframework.workflow.IWorkflowHandler;
  * @author 陈侃(cknet@126.com, 13910090885) https://github.com/simpleframework
  *         http://www.simpleframework.net
  */
-public interface IWorkflowRemote extends IWorkflowHandler {
+public interface IWorkflowRemoteHandler extends IWorkflowHandler {
 
 	Map<String, Object> call(String url, String method) throws IOException;
 
