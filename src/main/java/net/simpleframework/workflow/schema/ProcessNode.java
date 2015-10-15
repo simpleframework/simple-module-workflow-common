@@ -24,6 +24,8 @@ public class ProcessNode extends Node {
 	private Version version;
 	/* 作者 */
 	private String author;
+	/* 序号 */
+	private int oorder;
 
 	/* 含义：判断模型是流程实例共享，还是为每一个流程实例复制一个拷贝 */
 	private boolean instanceShared;
@@ -59,6 +61,15 @@ public class ProcessNode extends Node {
 
 	public ProcessNode setAuthor(final String author) {
 		this.author = author;
+		return this;
+	}
+
+	public int getOorder() {
+		return oorder;
+	}
+
+	public ProcessNode setOorder(final int oorder) {
+		this.oorder = oorder;
 		return this;
 	}
 
