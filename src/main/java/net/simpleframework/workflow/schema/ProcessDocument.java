@@ -4,8 +4,12 @@ import java.io.CharArrayReader;
 import java.io.InputStream;
 import java.io.Reader;
 import java.io.StringReader;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import net.simpleframework.common.ClassUtils;
+import net.simpleframework.common.ID;
 import net.simpleframework.ctx.common.xml.XmlDocument;
 
 /**
@@ -41,7 +45,28 @@ public class ProcessDocument extends XmlDocument {
 
 	@Override
 	public ProcessDocument clone() {
-		return new ProcessDocument(new StringReader(toString()));
+		final ProcessDocument doc = new ProcessDocument(new StringReader(toString()));
+		// 替换所有的id
+		final Map<String, String> idmap = new HashMap<String, String>();
+		final ProcessNode pn = doc.getProcessNode();
+		final ArrayList<TransitionNode> transitions = new ArrayList<TransitionNode>();
+		for (final Node node : pn.nodes()) {
+			final String id = ID.uuid().toString();
+			idmap.put(node.getId(), id);
+			node.setId(id);
+
+			if (node instanceof TransitionNode) {
+				transitions.add((TransitionNode) node);
+			}
+		}
+
+		for (final TransitionNode transition : transitions) {
+			transition.setFrom(idmap.get(transition.getFrom()));
+			transition.setTo(idmap.get(transition.getTo()));
+		}
+
+		pn.setId(ID.uuid().toString());
+		return doc;
 	}
 
 	public ProcessNode getProcessNode() {
