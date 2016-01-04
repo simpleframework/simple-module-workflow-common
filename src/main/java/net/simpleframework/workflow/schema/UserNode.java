@@ -24,6 +24,8 @@ public class UserNode extends AbstractTaskNode {
 
 	/* 是否空节点 */
 	private boolean empty;
+	/* 是否可直退 */
+	private boolean fallback;
 
 	public UserNode(final XmlElement beanElement, final ProcessNode processNode) {
 		super(beanElement == null ? addNode(processNode, "user-node") : beanElement, processNode);
@@ -79,6 +81,15 @@ public class UserNode extends AbstractTaskNode {
 
 	public UserNode setEmpty(final boolean empty) {
 		this.empty = empty;
+		return this;
+	}
+
+	public boolean isFallback() {
+		return fallback;
+	}
+
+	public UserNode setFallback(boolean fallback) {
+		this.fallback = fallback;
 		return this;
 	}
 
