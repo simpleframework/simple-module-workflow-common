@@ -88,7 +88,7 @@ public class UserNode extends AbstractTaskNode {
 		return fallback;
 	}
 
-	public UserNode setFallback(boolean fallback) {
+	public UserNode setFallback(final boolean fallback) {
 		this.fallback = fallback;
 		return this;
 	}
