@@ -14,13 +14,11 @@
     <dependency>
       <groupId>net.simpleframework</groupId>
       <artifactId>simple-common</artifactId>
-      <version>${simple.common}</version>
     </dependency>
     
     <dependency>
       <groupId>net.simpleframework</groupId>
       <artifactId>simple-context</artifactId>
-      <version>${simple.context}</version>
     </dependency>
     
     <dependency>
