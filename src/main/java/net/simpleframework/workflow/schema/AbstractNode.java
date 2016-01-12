@@ -35,7 +35,7 @@ public class AbstractNode extends AbstractElementBean {
 
 	protected Iterator<?> children(final String name) {
 		final XmlElement parent = getElement().element(name);
-		return parent != null ? parent.elementIterator() : CollectionUtils.EMPTY_ITERATOR;
+		return parent != null ? parent.elementIterator() : CollectionUtils.EMPTY_ITERATOR();
 	}
 
 	protected XmlElement child(final String name, final boolean insert) {
