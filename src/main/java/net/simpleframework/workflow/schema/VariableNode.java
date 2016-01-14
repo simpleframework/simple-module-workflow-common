@@ -39,7 +39,7 @@ public class VariableNode extends AbstractNode {
 	}
 
 	public String getName() {
-		return name;
+		return name != null ? name.trim() : null;
 	}
 
 	public VariableNode setName(final String name) {

@@ -48,7 +48,7 @@ public abstract class Node extends AbstractNode {
 	}
 
 	public String getName() {
-		return name;
+		return name != null ? name.trim() : null;
 	}
 
 	public Node setName(final String name) {
