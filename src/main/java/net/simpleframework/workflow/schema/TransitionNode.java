@@ -15,6 +15,9 @@ public class TransitionNode extends Node {
 
 	private String from, to;
 
+	/* 显示排序 */
+	private int order;
+
 	public TransitionNode(final XmlElement beanElement, final ProcessNode processNode) {
 		super(beanElement == null ? addNode(processNode, "transition") : beanElement, processNode);
 	}
@@ -54,6 +57,15 @@ public class TransitionNode extends Node {
 
 	public void setTransitionType(final AbstractTransitionType transitionType) {
 		this.transitionType = transitionType;
+	}
+
+	public int getOrder() {
+		return order;
+	}
+
+	public TransitionNode setOrder(int order) {
+		this.order = order;
+		return this;
 	}
 
 	@Override
