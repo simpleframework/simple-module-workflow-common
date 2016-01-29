@@ -63,7 +63,7 @@ public class TransitionNode extends Node {
 		return order;
 	}
 
-	public TransitionNode setOrder(int order) {
+	public TransitionNode setOrder(final int order) {
 		this.order = order;
 		return this;
 	}
