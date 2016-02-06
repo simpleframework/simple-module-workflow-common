@@ -16,7 +16,7 @@ public abstract class AbstractParticipantType extends AbstractNode {
 	}
 
 	public String getParticipant() {
-		return participant;
+		return participant != null ? participant.trim() : participant;
 	}
 
 	public AbstractParticipantType setParticipant(final String participant) {
