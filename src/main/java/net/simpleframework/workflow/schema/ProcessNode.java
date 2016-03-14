@@ -27,6 +27,9 @@ public class ProcessNode extends Node {
 	/* 序号 */
 	private int oorder;
 
+	/* 分组 */
+	private String pgroup;
+
 	/* 含义：判断模型是流程实例共享，还是为每一个流程实例复制一个拷贝 */
 	private boolean instanceShared;
 
@@ -61,6 +64,15 @@ public class ProcessNode extends Node {
 
 	public ProcessNode setAuthor(final String author) {
 		this.author = author;
+		return this;
+	}
+
+	public String getPgroup() {
+		return pgroup;
+	}
+
+	public ProcessNode setPgroup(String pgroup) {
+		this.pgroup = pgroup;
 		return this;
 	}
 
