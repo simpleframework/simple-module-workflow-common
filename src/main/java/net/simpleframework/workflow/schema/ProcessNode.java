@@ -71,7 +71,7 @@ public class ProcessNode extends Node {
 		return pgroup;
 	}
 
-	public ProcessNode setPgroup(String pgroup) {
+	public ProcessNode setPgroup(final String pgroup) {
 		this.pgroup = pgroup;
 		return this;
 	}
