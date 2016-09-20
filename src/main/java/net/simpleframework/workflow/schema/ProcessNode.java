@@ -151,8 +151,8 @@ public class ProcessNode extends Node {
 
 	public Node addNode(final String text, final Class<? extends Node> nodeClass) {
 		try {
-			final Node t = nodeClass.getConstructor(XmlElement.class, ProcessNode.class).newInstance(
-					null, this);
+			final Node t = nodeClass.getConstructor(XmlElement.class, ProcessNode.class)
+					.newInstance(null, this);
 			t.setText(text);
 			nodes.put(t.getId(), t);
 			return t;

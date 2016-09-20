@@ -20,7 +20,8 @@ public class AbstractTransitionType extends AbstractNode {
 		private String expression;
 
 		public Conditional(final XmlElement beanElement, final TransitionNode parent) {
-			super(beanElement == null ? addTransitionType(parent, "conditional") : beanElement, parent);
+			super(beanElement == null ? addTransitionType(parent, "conditional") : beanElement,
+					parent);
 		}
 
 		public String getExpression() {

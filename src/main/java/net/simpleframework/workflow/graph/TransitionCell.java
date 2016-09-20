@@ -2,11 +2,11 @@ package net.simpleframework.workflow.graph;
 
 import java.util.List;
 
-import net.simpleframework.workflow.schema.TransitionNode;
-
 import com.mxgraph.model.mxCell;
 import com.mxgraph.model.mxGeometry;
 import com.mxgraph.util.mxPoint;
+
+import net.simpleframework.workflow.schema.TransitionNode;
 
 /**
  * Licensed under the Apache License, Version 2.0

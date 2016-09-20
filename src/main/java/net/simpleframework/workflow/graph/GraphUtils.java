@@ -11,6 +11,12 @@ import java.util.Map;
 
 import javax.imageio.ImageIO;
 
+import com.mxgraph.util.mxCellRenderer;
+import com.mxgraph.util.mxConstants;
+import com.mxgraph.util.mxPoint;
+import com.mxgraph.view.mxEdgeStyle;
+import com.mxgraph.view.mxGraph;
+
 import net.simpleframework.common.Convert;
 import net.simpleframework.common.StringUtils;
 import net.simpleframework.workflow.schema.AbstractTaskNode;
@@ -19,12 +25,6 @@ import net.simpleframework.workflow.schema.Node;
 import net.simpleframework.workflow.schema.ProcessDocument;
 import net.simpleframework.workflow.schema.StartNode;
 import net.simpleframework.workflow.schema.TransitionNode;
-
-import com.mxgraph.util.mxCellRenderer;
-import com.mxgraph.util.mxConstants;
-import com.mxgraph.util.mxPoint;
-import com.mxgraph.view.mxEdgeStyle;
-import com.mxgraph.view.mxGraph;
 
 /**
  * Licensed under the Apache License, Version 2.0
@@ -76,8 +76,8 @@ public abstract class GraphUtils {
 				for (final String pointStr : StringUtils.split(transition.getProperty("points"), ";")) {
 					final String[] arr = StringUtils.split(pointStr, ",");
 					if (arr.length == 2) {
-						final mxPoint point = new mxPoint(Convert.toDouble(arr[0], 0), Convert.toDouble(
-								arr[1], 0));
+						final mxPoint point = new mxPoint(Convert.toDouble(arr[0], 0),
+								Convert.toDouble(arr[1], 0));
 						points.add(point);
 					}
 				}

@@ -1,6 +1,7 @@
 package net.simpleframework.workflow.schema;
 
 import static net.simpleframework.common.I18n.$m;
+
 import net.simpleframework.common.StringUtils;
 import net.simpleframework.ctx.common.xml.XmlElement;
 

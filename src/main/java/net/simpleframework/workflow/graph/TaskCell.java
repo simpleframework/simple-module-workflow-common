@@ -1,5 +1,8 @@
 package net.simpleframework.workflow.graph;
 
+import com.mxgraph.model.mxCell;
+import com.mxgraph.model.mxGeometry;
+
 import net.simpleframework.common.StringUtils;
 import net.simpleframework.workflow.schema.AbstractTaskNode;
 import net.simpleframework.workflow.schema.EndNode;
@@ -7,9 +10,6 @@ import net.simpleframework.workflow.schema.MergeNode;
 import net.simpleframework.workflow.schema.StartNode;
 import net.simpleframework.workflow.schema.SubNode;
 import net.simpleframework.workflow.schema.UserNode;
-
-import com.mxgraph.model.mxCell;
-import com.mxgraph.model.mxGeometry;
 
 /**
  * Licensed under the Apache License, Version 2.0
