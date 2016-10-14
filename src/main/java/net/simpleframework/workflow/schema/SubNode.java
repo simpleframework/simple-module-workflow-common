@@ -14,10 +14,13 @@ import net.simpleframework.ctx.script.IScriptEval;
 /**
  * Licensed under the Apache License, Version 2.0
  * 
- * @author 陈侃(cknet@126.com, 13910090885) https://github.com/simpleframework
+ * @author 陈侃(cknet@126.com, 13910090885)
+ *         https://github.com/simpleframework
  *         http://www.simpleframework.net
  */
 public class SubNode extends AbstractTaskNode {
+	private static final long serialVersionUID = -5416498015204103491L;
+
 	private String url;
 
 	private String model;

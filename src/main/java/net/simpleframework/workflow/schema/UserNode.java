@@ -9,10 +9,13 @@ import net.simpleframework.ctx.script.IScriptEval;
 /**
  * Licensed under the Apache License, Version 2.0
  * 
- * @author 陈侃(cknet@126.com, 13910090885) https://github.com/simpleframework
+ * @author 陈侃(cknet@126.com, 13910090885)
+ *         https://github.com/simpleframework
  *         http://www.simpleframework.net
  */
 public class UserNode extends AbstractTaskNode {
+	private static final long serialVersionUID = 1738174529440284084L;
+
 	/* 表单类 */
 	private String formClass;
 
@@ -126,6 +129,8 @@ public class UserNode extends AbstractTaskNode {
 	}
 
 	public static class Role extends AbstractParticipantType.BaseRole {
+		private static final long serialVersionUID = 3564219866340159679L;
+
 		private String responseValue;
 
 		/* 当多个参与者时，是否顺序执行当前任务 */
@@ -194,6 +199,8 @@ public class UserNode extends AbstractTaskNode {
 
 	// 相对角色
 	public static class RelativeRole extends Role {
+		private static final long serialVersionUID = 5813157897166252239L;
+
 		private ERelativeType relativeType;
 
 		/**
@@ -249,6 +256,8 @@ public class UserNode extends AbstractTaskNode {
 
 	// 规则角色
 	public static class RuleRole extends Role {
+		private static final long serialVersionUID = -7442185639258085517L;
+
 		/* 规则所需参数 */
 		private String params;
 

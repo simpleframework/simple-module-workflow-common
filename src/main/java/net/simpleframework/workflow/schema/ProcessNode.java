@@ -16,10 +16,13 @@ import net.simpleframework.workflow.WorkflowException;
 /**
  * Licensed under the Apache License, Version 2.0
  * 
- * @author 陈侃(cknet@126.com, 13910090885) https://github.com/simpleframework
+ * @author 陈侃(cknet@126.com, 13910090885)
+ *         https://github.com/simpleframework
  *         http://www.simpleframework.net
  */
 public class ProcessNode extends Node {
+	private static final long serialVersionUID = 1463090941269774497L;
+
 	/* 版本 */
 	private Version version;
 	/* 作者 */

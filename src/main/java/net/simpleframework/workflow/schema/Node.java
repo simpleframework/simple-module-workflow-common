@@ -19,10 +19,13 @@ import net.simpleframework.workflow.WorkflowException;
 /**
  * Licensed under the Apache License, Version 2.0
  * 
- * @author 陈侃(cknet@126.com, 13910090885) https://github.com/simpleframework
+ * @author 陈侃(cknet@126.com, 13910090885)
+ *         https://github.com/simpleframework
  *         http://www.simpleframework.net
  */
 public abstract class Node extends AbstractNode {
+	private static final long serialVersionUID = -9206856704637310699L;
+
 	private String id;
 
 	private String name, text;

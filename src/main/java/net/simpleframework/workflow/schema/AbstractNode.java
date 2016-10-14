@@ -17,7 +17,8 @@ import net.simpleframework.ctx.script.IScriptEval;
  * @author 陈侃(cknet@126.com, 13910090885) https://github.com/simpleframework
  *         http://www.simpleframework.net
  */
-public class AbstractNode extends AbstractElementBean {
+@SuppressWarnings("serial")
+public abstract class AbstractNode extends AbstractElementBean {
 	private final AbstractNode parent;
 
 	public AbstractNode(final XmlElement beanElement, final AbstractNode parent) {

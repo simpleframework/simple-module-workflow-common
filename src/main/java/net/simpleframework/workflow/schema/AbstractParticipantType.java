@@ -8,6 +8,7 @@ import net.simpleframework.ctx.common.xml.XmlElement;
  * @author 陈侃(cknet@126.com, 13910090885) https://github.com/simpleframework
  *         http://www.simpleframework.net
  */
+@SuppressWarnings("serial")
 public abstract class AbstractParticipantType extends AbstractNode {
 	private String participant;
 
