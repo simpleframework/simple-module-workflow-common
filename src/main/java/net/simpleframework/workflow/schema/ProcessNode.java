@@ -205,7 +205,7 @@ public class ProcessNode extends Node {
 	}
 
 	@Override
-	public void syncElement() {
+	public synchronized void syncElement() {
 		super.syncElement();
 		getStartupType().syncElement();
 
@@ -228,7 +228,7 @@ public class ProcessNode extends Node {
 	}
 
 	@Override
-	public void parseElement(final IScriptEval scriptEval) {
+	public synchronized void parseElement(final IScriptEval scriptEval) {
 		super.parseElement(scriptEval);
 		XmlElement ele = getElement().element("startup-type");
 		if (ele != null) {
