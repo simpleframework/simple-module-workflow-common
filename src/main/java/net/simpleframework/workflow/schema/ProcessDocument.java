@@ -41,7 +41,7 @@ public class ProcessDocument extends XmlDocument {
 	private ProcessNode processNode;
 
 	@Override
-	public String toString() {
+	public synchronized String toString() {
 		getProcessNode().syncElement();
 		return super.toString();
 	}
