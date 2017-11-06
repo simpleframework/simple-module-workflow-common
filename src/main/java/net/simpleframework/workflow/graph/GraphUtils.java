@@ -44,7 +44,7 @@ public abstract class GraphUtils {
 		style.put(mxConstants.STYLE_ROUNDED, true);
 		style.put(mxConstants.STYLE_ENDARROW, mxConstants.ARROW_OPEN);
 
-		final Map<String, TaskCell> taskCells = new HashMap<String, TaskCell>();
+		final Map<String, TaskCell> taskCells = new HashMap<>();
 		final Collection<Node> nodes = doc.getProcessNode().nodes();
 		for (final Node node : nodes) {
 			if (node instanceof AbstractTaskNode) {
@@ -72,7 +72,7 @@ public abstract class GraphUtils {
 				final double offsetX = transition.getDoubleProperty("offset-x");
 				final double offsetY = transition.getDoubleProperty("offset-y");
 
-				final List<mxPoint> points = new ArrayList<mxPoint>();
+				final List<mxPoint> points = new ArrayList<>();
 				for (final String pointStr : StringUtils.split(transition.getProperty("points"), ";")) {
 					final String[] arr = StringUtils.split(pointStr, ",");
 					if (arr.length == 2) {

@@ -240,7 +240,7 @@ public class ProcessNode extends Node {
 			}
 		}
 
-		nodes = new LinkedHashMap<String, Node>();
+		nodes = new LinkedHashMap<>();
 		Iterator<?> it = children("nodes");
 		while (it.hasNext()) {
 			ele = (XmlElement) it.next();
@@ -264,14 +264,14 @@ public class ProcessNode extends Node {
 			}
 		}
 
-		variables = new HashMap<String, VariableNode>();
+		variables = new HashMap<>();
 		it = children("variables");
 		while (it.hasNext()) {
 			final VariableNode variable = new VariableNode((XmlElement) it.next(), this);
 			variables.put(variable.getName(), variable);
 		}
 
-		listeners = new LinkedHashSet<String>();
+		listeners = new LinkedHashSet<>();
 		it = children("listeners");
 		while (it.hasNext()) {
 			final XmlElement ele2 = (XmlElement) it.next();

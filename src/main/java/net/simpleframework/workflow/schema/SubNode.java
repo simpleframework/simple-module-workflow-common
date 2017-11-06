@@ -82,7 +82,7 @@ public class SubNode extends AbstractTaskNode {
 	public void parseElement(final IScriptEval scriptEval) {
 		super.parseElement(scriptEval);
 
-		mappingSet = new LinkedHashSet<VariableMapping>();
+		mappingSet = new LinkedHashSet<>();
 		final Iterator<?> it = children("variable-mapping");
 		while (it.hasNext()) {
 			final String[] arr = StringUtils.split(((XmlElement) it.next()).getText(), ";");

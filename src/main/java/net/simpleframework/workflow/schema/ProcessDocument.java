@@ -50,9 +50,9 @@ public class ProcessDocument extends XmlDocument {
 	public ProcessDocument clone() {
 		final ProcessDocument doc = new ProcessDocument(new StringReader(toString()));
 		// 替换所有的id
-		final Map<String, String> idmap = new HashMap<String, String>();
+		final Map<String, String> idmap = new HashMap<>();
 		final ProcessNode pn = doc.getProcessNode();
-		final ArrayList<TransitionNode> transitions = new ArrayList<TransitionNode>();
+		final ArrayList<TransitionNode> transitions = new ArrayList<>();
 		for (final Node node : pn.nodes()) {
 			final String id = ID.uuid().toString();
 			idmap.put(node.getId(), id);

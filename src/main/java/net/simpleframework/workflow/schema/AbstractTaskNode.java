@@ -33,7 +33,7 @@ public abstract class AbstractTaskNode extends Node {
 	public abstract short getTasknodeType();
 
 	public Collection<TransitionNode> fromTransitions() {
-		final ArrayList<TransitionNode> al = new ArrayList<TransitionNode>();
+		final ArrayList<TransitionNode> al = new ArrayList<>();
 		for (final Node node : ((ProcessNode) getParent()).nodes()) {
 			if (node instanceof TransitionNode) {
 				final TransitionNode transition = (TransitionNode) node;
@@ -46,7 +46,7 @@ public abstract class AbstractTaskNode extends Node {
 	}
 
 	public Collection<TransitionNode> toTransitions() {
-		final ArrayList<TransitionNode> al = new ArrayList<TransitionNode>();
+		final ArrayList<TransitionNode> al = new ArrayList<>();
 		for (final Node node : ((ProcessNode) getParent()).nodes()) {
 			if (node instanceof TransitionNode) {
 				final TransitionNode transition = (TransitionNode) node;
@@ -79,14 +79,14 @@ public abstract class AbstractTaskNode extends Node {
 	public void parseElement(final IScriptEval scriptEval) {
 		super.parseElement(scriptEval);
 
-		variables = new HashMap<String, VariableNode>();
+		variables = new HashMap<>();
 		Iterator<?> it = children("variables");
 		while (it.hasNext()) {
 			final VariableNode variable = new VariableNode((XmlElement) it.next(), this);
 			variables.put(variable.getName(), variable);
 		}
 
-		listeners = new LinkedHashSet<String>();
+		listeners = new LinkedHashSet<>();
 		it = children("listeners");
 		while (it.hasNext()) {
 			final XmlElement ele2 = (XmlElement) it.next();
